@@ -30,7 +30,7 @@ from pyakm.dbus import ClientManager
 from pyakm.config import ConfigGui
 
 
-kernels = ['linux', 'linux-lts', 'linux-zen', 'linux-hardened']
+kernels = ['linux', 'linux-lts', 'linux-zen'] #, 'linux-hardened']
 
 
 class ManagerGui(Gtk.Window):
@@ -41,7 +41,7 @@ class ManagerGui(Gtk.Window):
         self.builder.add_from_file("/usr/share/pyakm/ui/manager.ui")
         self.window = self.builder.get_object('window1')
 
-        self.kernel_menu_entries = ['linux', 'linux-lts', 'linux-zen', 'linux-hardened']
+        self.kernel_menu_entries = ['linux', 'linux-lts', 'linux-zen'] #, 'linux-hardened']
         self.selected_menu_entry = 'linux'
 
         self.window_loaded = False
