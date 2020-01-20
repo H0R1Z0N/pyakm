@@ -31,7 +31,7 @@ conf = config.PacmanConfig(conf="/etc/pacman.conf")
 handle = conf.initialize_alpm()
 
 official_dict = {'linux':'core', 'linux-lts':'core',
-                 'linux-zen':'extra', 'linux-hardened':'extra'}
+                 'linux-zen':'extra'} #, 'linux-hardened':'extra'}
 
 archive_url = "https://archive.archlinux.org/packages/"
 aur_url = "https://aur.archlinux.org/rpc/?v=5&"
@@ -445,9 +445,11 @@ class OfficialKernel:
         raise networkError()
         
     def _isUptoDate(self):
-        if self.local is None:
+		if self.local is None:
             return -1
-        elif self.local.version != self.repo.version:
+#       elif self.kernel_name is "hardened"
+#			get
+		elif self.local.version != self.repo.version:
             return 0
         else:
             return 1
